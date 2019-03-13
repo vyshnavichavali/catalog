@@ -1,0 +1,43 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+  <!-- {% for tb in va_cat %}
+    <a href="{{ url_for('showGold',tbid=tb.id)}}">{{tb.name}}</a><br>
+    {% endfor %} -->
+    {% with messages = get_flashed_messages() %}
+	    {% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	    {% endif %}
+	{% endwith %}
+
+	<div class="text-center">
+		<!-- <h1>Welcome to GoldStore</h1> -->
+		<div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides" src="http://im.rediff.com/money/2012/mar/15kal2.jpg" style="width:160%">
+  <img class="mySlides" src="https://media.gettyimages.com/photos/inside-view-of-jewellery-shop-on-dhanteras-in-connaught-place-on-9-picture-id531899840" style="width:160%">
+  <img class="mySlides" src="https://media.gettyimages.com/photos/hostess-arranges-jewellery-during-the-riyadh-international-jewellery-picture-id522274732" style="width:160%">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+{% endblock content %}
+</div>
